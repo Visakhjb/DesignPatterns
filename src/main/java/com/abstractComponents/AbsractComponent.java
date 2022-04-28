@@ -28,5 +28,16 @@ public abstract class AbsractComponent
         List<WebElement> e = sectionElement.findElements(element);
         return  e;
     }
+
+    public void clickElement(By element)
+    {
+        try
+        {
+            sectionElement.findElement(element).click();
+        } catch (Exception e) {
+            System.out.println("Could not find element");
+            throw new RuntimeException(e);
+        }
+    }
 }
 

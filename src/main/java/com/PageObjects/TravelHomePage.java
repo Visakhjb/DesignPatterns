@@ -2,6 +2,7 @@ package com.PageObjects;
 
 import com.PackageComponents.FooterNavigation;
 import com.PackageComponents.NavigationBar;
+import com.abstractComponents.ISearchFlightAvail;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -12,6 +13,7 @@ public class TravelHomePage {
     By sectionElement = By.id("traveller-home");
     By  footerNavSection = By.id("buttons");
     WebDriver driver;
+    ISearchFlightAvail searchavail;  //this can be used a reference for all the classes which implement this
 
     public TravelHomePage(WebDriver driver) {
         this.driver = driver;
@@ -27,6 +29,16 @@ public class TravelHomePage {
 
     public FooterNavigation getFooterNavigation() {
         return new FooterNavigation(driver, footerNavSection);
+    }
+
+    public void setTravelType(ISearchFlightAvail searchavail)
+    {
+        this.searchavail = searchavail;
+    }
+
+    public void checkAvailability(String source,String destination)
+    {
+        searchavail.checkAvail(source,destination);
     }
 
 }
