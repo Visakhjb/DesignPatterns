@@ -3,6 +3,7 @@ package com.PageObjects;
 import com.PackageComponents.FooterNavigation;
 import com.PackageComponents.NavigationBar;
 import com.abstractComponents.ISearchFlightAvail;
+import com.abstractComponents.StrategyFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -34,6 +35,12 @@ public class TravelHomePage {
     public void setTravelType(ISearchFlightAvail searchavail)
     {
         this.searchavail = searchavail;
+    }
+
+    //factory design pattern
+    public void setTravelType(String Strategytype)
+    {
+        this.searchavail = new StrategyFactory(driver).createStrategy(Strategytype);
     }
 
     public void checkAvailability(String source,String destination)

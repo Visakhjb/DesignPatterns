@@ -44,6 +44,11 @@ public class Demotest {
         homePage.setTravelType(new RoundTrip(driver,sectionElement));
         homePage.checkAvailability("Chennai (MAA)","Goa (GOI)");
 
+        //Factory Design Pattern
+        homePage.setTravelType("roundtrip");
+        homePage.checkAvailability("Chennai (MAA)","Goa (GOI)");
+
+
 
 
 
