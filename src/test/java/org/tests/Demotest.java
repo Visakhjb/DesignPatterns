@@ -38,9 +38,9 @@ public class Demotest {
 
         //Strategy design pattern
         homePage.setTravelType(new Multitrip(driver,sectionElement));
-        homePage.checkAvailability("source location","destination location");
+        homePage.checkAvailability("Chennai (MAA)","Goa (GOI)");
         homePage.setTravelType(new OnewayTrip());
-        homePage.checkAvailability("source location","destination location");
+        homePage.checkAvailability("Chennai (MAA)","Goa (GOI)");
         homePage.setTravelType(new RoundTrip(driver,sectionElement));
         homePage.checkAvailability("Chennai (MAA)","Goa (GOI)");
 
