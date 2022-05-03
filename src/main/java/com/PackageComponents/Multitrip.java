@@ -5,6 +5,7 @@ import com.abstractComponents.ISearchFlightAvail;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class Multitrip extends AbsractComponent implements ISearchFlightAvail {
@@ -24,10 +25,9 @@ public class Multitrip extends AbsractComponent implements ISearchFlightAvail {
 
 
     @Override
-    public void checkAvail(String origin, String destination) {
-        executeBeforeCode(s->selectOriginCity(origin));
-        selectOriginCity(origin);
-        selectDestinationCity(destination);
+    public void checkAvail(HashMap<String, String> reservationDetails) {
+        executeBeforeCode(s->selectOriginCity(reservationDetails.get("Source")));
+        selectDestinationCity(reservationDetails.get("Destination"));
         customFindElement(armedForcescheckbox).click();
         customFindElement(searchFlights).click();
     }
@@ -54,4 +54,6 @@ public class Multitrip extends AbsractComponent implements ISearchFlightAvail {
         consumer.accept(this);
 
     }
+
+
 }

@@ -5,6 +5,8 @@ import com.abstractComponents.ISearchFlightAvail;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.HashMap;
+
 public class RoundTrip extends AbsractComponent implements ISearchFlightAvail {
 
     private By from_location = By.id("ctl00_mainContent_ddl_originStation1_CTXT");
@@ -19,11 +21,11 @@ public class RoundTrip extends AbsractComponent implements ISearchFlightAvail {
     }
 
     @Override
-    public void checkAvail(String origin, String destination) {
+    public void checkAvail(HashMap<String, String> reservationDetails) {
         customFindElement(roundtrip_radiobutton).click();
         customFindElement(from_location).click();
-        selectOriginCity(origin);
-        selectDestinationCity(destination);
+        selectOriginCity(reservationDetails.get("Source"));
+        selectDestinationCity(reservationDetails.get("Destination"));
         customFindElement(armedForcescheckbox).click();
         customFindElement(searchFlights).click();
     }

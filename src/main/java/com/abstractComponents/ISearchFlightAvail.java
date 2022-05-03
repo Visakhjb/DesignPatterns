@@ -1,6 +1,9 @@
 package com.abstractComponents;
 
+import java.util.HashMap;
+
 public interface ISearchFlightAvail {
 
-     public void checkAvail(String origin, String destination);
+     public void checkAvail(HashMap<String,String> reservationDetails);
+
 }

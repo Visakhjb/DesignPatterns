@@ -7,6 +7,8 @@ import com.abstractComponents.StrategyFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.HashMap;
+
 public class TravelHomePage {
 
     /* This class will contain only the references of all the other pages */
@@ -43,9 +45,9 @@ public class TravelHomePage {
         this.searchavail = new StrategyFactory(driver).createStrategy(Strategytype);
     }
 
-    public void checkAvailability(String source,String destination)
+    public void checkAvailability(HashMap<String, String> reservationDetails)
     {
-        searchavail.checkAvail(source,destination);
+        searchavail.checkAvail(reservationDetails);
     }
 
 }
